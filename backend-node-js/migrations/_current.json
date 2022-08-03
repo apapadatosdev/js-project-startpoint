@@ -1,0 +1,223 @@
+{
+    "tables": {
+        "events": {
+            "tableName": "events",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "title": {
+                    "allowNull": false,
+                    "field": "title",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "allowNull": true,
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "host": {
+                    "allowNull": true,
+                    "field": "host",
+                    "seqType": "Sequelize.STRING"
+                },
+                "start_time": {
+                    "allowNull": false,
+                    "field": "start_time",
+                    "seqType": "Sequelize.DATE"
+                },
+                "duration": {
+                    "allowNull": false,
+                    "field": "duration",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "created_by": {
+                    "allowNull": false,
+                    "field": "created_by",
+                    "seqType": "Sequelize.STRING"
+                },
+                "updated_by": {
+                    "allowNull": false,
+                    "field": "updated_by",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "tasks": {
+            "tableName": "tasks",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "title": {
+                    "allowNull": false,
+                    "field": "title",
+                    "seqType": "Sequelize.STRING"
+                },
+                "description": {
+                    "allowNull": true,
+                    "field": "description",
+                    "seqType": "Sequelize.STRING"
+                },
+                "status": {
+                    "allowNull": false,
+                    "field": "status",
+                    "seqType": "Sequelize.STRING"
+                },
+                "public": {
+                    "allowNull": false,
+                    "field": "public",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "deadline": {
+                    "allowNull": true,
+                    "field": "deadline",
+                    "seqType": "Sequelize.DATEONLY"
+                },
+                "created_by": {
+                    "allowNull": false,
+                    "field": "created_by",
+                    "seqType": "Sequelize.STRING"
+                },
+                "updated_by": {
+                    "allowNull": false,
+                    "field": "updated_by",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
+        "users": {
+            "tableName": "users",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "email": {
+                    "allowNull": false,
+                    "unique": true,
+                    "field": "email",
+                    "seqType": "Sequelize.STRING"
+                },
+                "password": {
+                    "allowNull": false,
+                    "field": "password",
+                    "seqType": "Sequelize.STRING"
+                },
+                "firstname": {
+                    "allowNull": true,
+                    "field": "firstname",
+                    "seqType": "Sequelize.STRING"
+                },
+                "lastname": {
+                    "allowNull": true,
+                    "field": "lastname",
+                    "seqType": "Sequelize.STRING"
+                },
+                "provider": {
+                    "allowNull": false,
+                    "field": "provider",
+                    "seqType": "Sequelize.STRING"
+                },
+                "providerId": {
+                    "allowNull": true,
+                    "field": "providerId",
+                    "seqType": "Sequelize.STRING"
+                },
+                "profilePhoto": {
+                    "allowNull": true,
+                    "field": "profilePhoto",
+                    "seqType": "Sequelize.STRING"
+                },
+                "refreshtoken": {
+                    "allowNull": true,
+                    "field": "refreshtoken",
+                    "seqType": "Sequelize.STRING"
+                },
+                "activationCode": {
+                    "allowNull": false,
+                    "field": "activationCode",
+                    "seqType": "Sequelize.STRING"
+                },
+                "isActivated": {
+                    "allowNull": false,
+                    "field": "isActivated",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "activationDate": {
+                    "allowNull": true,
+                    "field": "activationDate",
+                    "seqType": "Sequelize.DATE"
+                },
+                "passwordResetCode": {
+                    "allowNull": true,
+                    "field": "passwordResetCode",
+                    "seqType": "Sequelize.STRING"
+                },
+                "passwordResetCodeCreationDate": {
+                    "allowNull": true,
+                    "field": "passwordResetCodeCreationDate",
+                    "seqType": "Sequelize.DATE"
+                },
+                "passwordResetDate": {
+                    "allowNull": true,
+                    "field": "passwordResetDate",
+                    "seqType": "Sequelize.DATE"
+                },
+                "isDisabled": {
+                    "allowNull": false,
+                    "field": "isDisabled",
+                    "seqType": "Sequelize.BOOLEAN"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "path": "D:\\Code\\GITHUB\\js-project-startpoint\\backend-node-js\\migrations\\_current.json",
+    "backupPath": "D:\\Code\\GITHUB\\js-project-startpoint\\backend-node-js\\migrations\\_current_bak.json",
+    "exists": true,
+    "revision": 5
+}

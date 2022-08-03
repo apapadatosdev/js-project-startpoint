@@ -1,0 +1,7 @@
+node_modules
+build
+dbfile/database.sqlite
+npm-debug.log
+.nyc
+.env
+.DS_Store

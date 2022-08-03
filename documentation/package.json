@@ -1,0 +1,19 @@
+{
+  "name": "js-project-startpoint-documentation",
+  "version": "0.0.1",
+  "description": "Javascript Project Startpoin",
+  "main": "index.js",
+  "authors": {
+    "name": "Alex Papadatos",
+    "email": "apapadatosdev@gmail.com"
+  },
+  "repository": "https://github.com/apapadatosdev/js-project-startpoint/js-project-startpoint-documentation",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
