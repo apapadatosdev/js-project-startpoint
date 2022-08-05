@@ -1,3 +1,7 @@
+// const db = require('../models');
+// const Event = db.event;
+// const EventAttendee = db.eventattendee;
+
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define("user", {
         email: {
@@ -62,5 +66,6 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },        
     });
+    //User.belongsToMany(Event, { through: EventAttendee });
     return User;
 }

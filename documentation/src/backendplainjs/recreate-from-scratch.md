@@ -29,6 +29,11 @@ npm install passport passport-local
 npm install passport-jwt jsonwebtoken
 ```
 
+Validation and CORS
+```bash
+npm install express-validator cors
+```
+
 Now initialize the project with sequelize related stuff
 ```bash
 npx sequelize init

@@ -1,5 +1,33 @@
 {
     "tables": {
+        "categories": {
+            "tableName": "categories",
+            "schema": {
+                "id": {
+                    "allowNull": false,
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "title": {
+                    "allowNull": false,
+                    "field": "title",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        },
         "events": {
             "tableName": "events",
             "schema": {
@@ -18,11 +46,6 @@
                 "description": {
                     "allowNull": true,
                     "field": "description",
-                    "seqType": "Sequelize.STRING"
-                },
-                "host": {
-                    "allowNull": true,
-                    "field": "host",
                     "seqType": "Sequelize.STRING"
                 },
                 "start_time": {
@@ -54,6 +77,66 @@
                     "allowNull": false,
                     "field": "updatedAt",
                     "seqType": "Sequelize.DATE"
+                },
+                "categoryId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "categories",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "categoryId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "hostId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "hostId",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "eventattendees": {
+            "tableName": "eventattendees",
+            "schema": {
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "eventId": {
+                    "primaryKey": true,
+                    "references": {
+                        "model": "events",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "field": "eventId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "userId": {
+                    "primaryKey": true,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "field": "userId",
+                    "seqType": "Sequelize.INTEGER"
                 }
             },
             "indexes": []
@@ -94,14 +177,14 @@
                     "seqType": "Sequelize.DATEONLY"
                 },
                 "created_by": {
-                    "allowNull": false,
+                    "allowNull": true,
                     "field": "created_by",
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "Sequelize.INTEGER"
                 },
                 "updated_by": {
-                    "allowNull": false,
+                    "allowNull": true,
                     "field": "updated_by",
-                    "seqType": "Sequelize.STRING"
+                    "seqType": "Sequelize.INTEGER"
                 },
                 "createdAt": {
                     "allowNull": false,
@@ -112,6 +195,55 @@
                     "allowNull": false,
                     "field": "updatedAt",
                     "seqType": "Sequelize.DATE"
+                },
+                "categoryId": {
+                    "allowNull": true,
+                    "references": {
+                        "model": "categories",
+                        "key": "id"
+                    },
+                    "onDelete": "SET NULL",
+                    "onUpdate": "CASCADE",
+                    "field": "categoryId",
+                    "seqType": "Sequelize.INTEGER"
+                }
+            },
+            "indexes": []
+        },
+        "taskassignees": {
+            "tableName": "taskassignees",
+            "schema": {
+                "createdAt": {
+                    "allowNull": false,
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "allowNull": false,
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "taskId": {
+                    "primaryKey": true,
+                    "references": {
+                        "model": "tasks",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "field": "taskId",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "userId": {
+                    "primaryKey": true,
+                    "references": {
+                        "model": "users",
+                        "key": "id"
+                    },
+                    "onDelete": "CASCADE",
+                    "onUpdate": "CASCADE",
+                    "field": "userId",
+                    "seqType": "Sequelize.INTEGER"
                 }
             },
             "indexes": []
@@ -160,6 +292,11 @@
                 "profilePhoto": {
                     "allowNull": true,
                     "field": "profilePhoto",
+                    "seqType": "Sequelize.STRING"
+                },
+                "refreshtoken": {
+                    "allowNull": true,
+                    "field": "refreshtoken",
                     "seqType": "Sequelize.STRING"
                 },
                 "activationCode": {
@@ -214,5 +351,5 @@
     "path": "D:\\Code\\GITHUB\\js-project-startpoint\\backend-node-js\\migrations\\_current.json",
     "backupPath": "D:\\Code\\GITHUB\\js-project-startpoint\\backend-node-js\\migrations\\_current_bak.json",
     "exists": true,
-    "revision": 4
+    "revision": 8
 }

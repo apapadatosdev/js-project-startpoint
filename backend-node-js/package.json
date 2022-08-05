@@ -7,14 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
     "db:migrations:generate": "sequelize-mig migration:make -n ",
-    "db:migrations:run": "npx sequelize-cli db:migrate"
+    "db:migrations:run": "npx sequelize-cli db:migrate",
+    "db:migrations:create": "npx sequelize-cli migration:generate --name "
   },
   "author": "Alex Papadatos",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",

@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
 const bodyparser = require('body-parser');
-const passport = require('passport');
+const cors = require('cors');
+//const passport = require('passport');
 const authjwt = require('./middleware/auth.jwt')();
 const authjwtrefresh = require('./middleware/auth.jwtrefresh')();
 const authlocal = require('./middleware/auth.local')();
@@ -24,7 +25,8 @@ const errorHandler = (error, request, response, next) => {
 // Body-parser middleware
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(bodyparser.json());
-
+// cors
+app.use(cors());
 // initialize auth
 app.use(authlocal.initialize());
 app.use(authjwt.initialize());
@@ -41,16 +43,6 @@ app.use(async (err, req, res, next) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
-
-// app.post('/', (req, res) => {
-//     const {name} = req.body;
-//     res.send(`Welcome ${name}`);
-// });
-
-// app.get('/', (req, res)=> {
-//     res.status(200);
-//     res.send("Welcome to the root URL!");
-// });
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(errorHandler);

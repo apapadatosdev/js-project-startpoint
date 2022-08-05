@@ -7,11 +7,7 @@ module.exports = (sequelize, DataTypes) => {
         description: {
             type: DataTypes.STRING,
             allowNull: true
-        },
-        host: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
+        },        
         start_time: {
             type: DataTypes.DATE,
             allowNull: false
@@ -21,13 +17,18 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         created_by: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.INTEGER,
+            allowNull: true
         },
         updated_by: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.INTEGER,
+            allowNull: true
         },
     });
+    Event.associate = (db) => {
+        Event.belongsTo(db.category, { foreignKey: 'categoryId' });
+        Event.belongsTo(db.user, { foreignKey: 'hostId' });
+        Event.belongsToMany(db.user, { through: db.eventattendee }); 
+    };
     return Event;
 }

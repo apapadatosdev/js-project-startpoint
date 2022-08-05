@@ -21,14 +21,18 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true
         },
         created_by: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.INTEGER,
+            allowNull: true
         },
         updated_by: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.INTEGER,
+            allowNull: true
         },
     });
+    Task.associate = (db) => {
+        Task.belongsTo(db.category, { foreignKey: 'categoryId' })        
+        Task.belongsToMany(db.user, { through: db.taskassignee, as: 'assignees' }); 
+    };    
     return Task;
 }
 
